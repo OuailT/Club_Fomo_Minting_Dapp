@@ -1,0 +1,94 @@
+.header-container {
+    position: relative;
+    padding: 30px 0;
+    text-align: center;
+}
+
+
+.header-container h1 {
+    font-size: 11vw;
+    text-align: center;
+    font-weight: 600;
+    line-height: 145px;
+    text-transform: uppercase;
+    margin-top: 0px;
+    color:#fff;
+}
+
+
+.LineChildren {
+    transform: translate(0, 500px);
+    padding-top:19px; 
+}
+
+.LineParents {
+   overflow: hidden;
+   
+} 
+
+.network-title {
+    margin: 25px 0px 0px 0px;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 31px;
+    text-align: center;
+}
+
+
+.info-title {
+   margin: 10px 0px 0px 0px;
+   letter-spacing: 1px;
+   font-size: 1.1rem;
+   font-weight: 400;
+
+}
+
+@media (max-width: 992px) {
+    .header-container h1 {
+        font-size: 14vw;
+        font-weight: 600;
+        line-height: 135px;
+        margin-top: 0px;
+    }
+    
+}
+
+
+@media (max-width: 700px) {
+    .header-container h1 {
+        font-size: 16vw;
+        font-weight: 600;
+        margin-top: 0px;
+        line-height: 90px;
+    }
+    
+}
+  
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .header-container h1 {
+        font-size: 16vw;
+        font-weight: 600;
+        margin-top: 0px;
+        line-height: 70px;
+    }
+    
+}
+
+@media (max-width:320px) {
+    .header-container h1 {
+        line-height: 56px;
+    }
+
+    .network-title {
+        line-height: 25px;
+        font-size: 1.1rem;
+        padding: 0px 10px;
+    }
+
+    .info-title {
+        font-size: 1rem;
+     }
+}
+

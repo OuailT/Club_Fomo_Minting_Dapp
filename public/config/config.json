@@ -1,0 +1,18 @@
+{
+  "CONTRACT_ADDRESS": "0x3FD7060458EE41C3F01A68fa55D0D78F9804CcA7",
+  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0xe967d7e2addaaa13fda7222ad4102bb0209b4754",
+  "NETWORK": {
+    "NAME": "Rinkeby Test Network",
+    "SYMBOL": "ETH",
+    "ID": 4
+  },
+  "NFT_NAME": "Rose Law Group Meta Report",
+  "SYMBOL": "RLG",
+  "MAX_SUPPLY": 2000,
+  "WEI_COST": 100000000000000,
+  "DISPLAY_COST": 0,
+  "GAS_LIMIT": 285000,
+  "MARKETPLACE": "Opeansea",
+  "MARKETPLACE_LINK": "https://opensea.io/",
+  "SHOW_BACKGROUND": true
+}
