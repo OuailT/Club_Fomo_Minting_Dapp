@@ -8,6 +8,7 @@ import Alert from "./components/Alert/Alert";
 import Header from "./components/Header/Header";
 import Navbar from "../src/components/Navbar/Navbar";
 import SocialMedia from "./components/SocialMedia/SocialMedia";
+import "./components/ButtonT/ButtonT.css";
 
 
 const { MerkleTree } = require("merkletreejs");
@@ -179,8 +180,9 @@ function App() {
                         {loading ? (
                         <Loader/>
                        ) : null}
-                        <button 
-                          class="cybr-btn"
+                       <div class="wrapper">
+                        <div
+                          class="button"
                           disabled={claimingNft ? 1 : 0}
                           onClick={(e)=> {
                           e.preventDefault();
@@ -189,19 +191,19 @@ function App() {
                         }}>
                           {claimingNft ? (
                             <>
-                              Busy Minting<span aria-hidden>...</span>
-                              <span aria-hidden class="cybr-btn__glitch">Busy Minting...</span>
-                              <span aria-hidden class="cybr-btn__tag">CLF</span>
+                              <span class="button__mask"></span>
+                              <span class="button__text">BUSY Minting...</span>
+                              <span class="button__text button__text--bis">BUSY Minting...</span>
                             </>
                           ) :  (
                             <>
-                            MINT YOUR NFT<span aria-hidden>_</span>
-                            <span aria-hidden class="cybr-btn__glitch">MINT YOUR NFT_</span>
-                            <span aria-hidden class="cybr-btn__tag">CLF</span>
+                            <span class="button__mask"></span>
+                              <span class="button__text">Mint Your NFT</span>
+                              <span class="button__text button__text--bis">Mint Your NFT</span>
                             </>
                           )} 
-                         </button>
-                         
+                         </div>
+                        </div>
                       </>)}
                        </> 
                       )}

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { connect } from "../../redux/blockchain/blockchainActions";
 import '../SocialMedia/SocialMedia';
 import SocialMedia from '../SocialMedia/SocialMedia';
+import "../ButtonT/ButtonT.css";
 
 
 const Header = () => {
@@ -48,19 +49,19 @@ const Header = () => {
     return (
         <section className="header-container" data-scroll-section>
 
-            <h1 className="text-Header" id="text-Header" data-scroll>CLUB FOMO Welcome</h1>
-             <button 
-                class="cybr-btn"
-                onClick={(e) => {
+            <h1 className="text-Header bottom" id="text-Header" data-scroll>CLUB FOMO Welcome</h1>
+            <div class="wrapper">
+                <div class="button" onClick={(e) => {
                 e.preventDefault();
                 dispatch(connect());
                 getData();
                 }}>
-                Connect Wallet<span aria-hidden>_</span>
-                <span aria-hidden class="cybr-btn__glitch">Connect Wallet</span>
-                <span aria-hidden class="cybr-btn__tag">CLF</span>
-    
-                </button>
+                    <span class="button__mask"></span>
+                    <span class="button__text">Connect Wallet</span>
+                    <span class="button__text button__text--bis">Connect Wallet</span>
+                </div>
+            </div>
+
             <h2 className='network-title'> Please make sure your wallet is connected to Ethereum Network </h2>
         </section>
     )

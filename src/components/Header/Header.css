@@ -18,8 +18,13 @@
 
 .LineChildren {
     transform: translate(0, 500px);
-    padding-top:19px; 
+    padding-top:2px; 
 }
+
+.text-Header.bottom {
+    padding-bottom: 20px;
+}
+
 
 .LineParents {
    overflow: hidden;
@@ -27,7 +32,7 @@
 } 
 
 .network-title {
-    margin: 25px 0px 0px 0px;
+    padding: 20px 0px 0px 0px;
     letter-spacing: 1px;
     font-size: 1.3rem;
     font-weight: 400;
