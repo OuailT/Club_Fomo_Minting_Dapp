@@ -194,7 +194,23 @@
       text-transform: uppercase;
       margin-bottom: 10px;
     }
+
+    .socialM {
+      position: absolute;
+      top: 81%;
+      right: initial;
+      margin-top: 60px;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
   }
+
+  .socialM li a .social-icon {
+      margin-right: 12px;
+  }
+}
 
 
   @media (max-width: 885px) {
@@ -210,7 +226,6 @@
   .title-mint {
     font-size: 9vw;
     line-height: 60px;
-   
   }
   
 }
@@ -219,7 +234,16 @@
   .title-mint {
     font-size: 11vw;
     line-height: 49px;
-   
+  }
+
+  button#count.btn {
+    width: 43px;
+    height: 40px;
+  }
+
+  p#count.btn {
+    width: 43px;
+    height: 40px;
   }
   
 }

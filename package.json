@@ -1,7 +1,7 @@
 {
-  "name": "rose_law_minting_nft",
+  "name": "club_fomo_minting_nft",
   "version": "1.0.0",
-  "description": "RoseLaw_Minting_Dapp",
+  "description": "CLubFomo_Minting_Dapp",
   "private": true,
   "dependencies": {
     "all": "0.0.0",

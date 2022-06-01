@@ -45,7 +45,7 @@ const Header = () => {
         });
 
         gsap.to(split.lines, {
-            duration: 1.20,
+            duration: 2.1,
             y: 0,
             opacity: 1,
             stagger:0.1,
