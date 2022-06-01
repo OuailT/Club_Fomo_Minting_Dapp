@@ -66,6 +66,12 @@
     line-height: 100px;
     text-transform: uppercase;
     margin-bottom: 10px;
+    margin-top: 20px;
+  }
+
+  .cost {
+    text-align: center;
+    padding: 0px 20px;
   }
 
 
@@ -114,7 +120,7 @@
 
     .alert {
       margin: 20px 10px 0px 15px;
-      font-size: 1.5rem;
+      font-size: 1rem;
       text-align: center;
       line-height: 23px;
       letter-spacing: 0.5px;
@@ -146,6 +152,37 @@
   .btn:hover {
     background: #9BABFB;
   }
+
+  .socialM {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .socialM li {
+    list-style: none;
+  }
+
+  .socialM li a {
+    text-decoration: none;
+  }
+
+  .socialM li a .social-icon {
+    color: #fff;
+    transform: scale(1.2);
+    margin-bottom: 5px;
+    transition: 0.5s;
+  }
+
+  .socialM li a .social-icon:hover {
+    opacity: 0.2;
+  }
+
   
   @media (max-width: 922px)  {
     .title-mint {

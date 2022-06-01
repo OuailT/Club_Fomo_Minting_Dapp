@@ -6,9 +6,8 @@ nav.nav-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 100px;
+    padding: 30px 70px;
     z-index: 1000;
-    
   }
 
   .logo {
@@ -27,7 +26,7 @@ nav.nav-bar {
     position: relative;
   }
 
-  .btn-navbar {
+  /* .btn-navbar {
     width: 180px;
     height: 40px;
     font-weight: 600;
@@ -47,8 +46,37 @@ nav.nav-bar {
     color: #000;
     background: #fff;
     border-radius: 5px;
-  }
+  } */
 
+  .btn-navbar {
+    width: 200px;
+    height: 50px;
+    font-weight: 600;
+    font-family: inherit;
+    border: bold;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 17px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background: transparent;
+    text-transform: uppercase;
+    overflow: hidden;
+    border: 0.2em solid;
+	  position: relative;
+	  cursor: pointer;
+	  overflow: hidden;
+	  color: #fff;
+    opacity: 1;
+    
+}
+
+.btn-navbar:hover {
+  opacity: 0.6;
+}
 
   .navigation li {
     margin-left: 2rem;
@@ -83,7 +111,7 @@ nav.nav-bar {
     }
 
     nav.nav-bar {
-      padding: 49px 22px;
+      padding: 63px 22px 0px 22px;
     }
   
     nav.nav-bar .navigation {
@@ -144,6 +172,11 @@ nav.nav-bar {
 
     nav.nav-bar {
       justify-content: center;
+    }
+
+    .btn-navbar {
+      width: 187px;
+      height: 52px;
     }
     
   }

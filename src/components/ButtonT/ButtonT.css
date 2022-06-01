@@ -88,4 +88,14 @@
 		 opacity: 1;
 	}
 }
+
+
+@media(max-width: 380px) {
+	.button__text {
+		display: block;
+		padding: 0.7em 1em;
+		text-transform: uppercase;
+		font-weight: bold;
+   }
+}
  

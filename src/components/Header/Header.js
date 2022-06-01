@@ -49,7 +49,7 @@ const Header = () => {
     return (
         <section className="header-container" data-scroll-section>
 
-            <h1 className="text-Header bottom" id="text-Header" data-scroll>CLUB FOMO Welcome</h1>
+            <h1 className="text-Header bottom" id="text-Header" data-scroll>We Are CLUB FOMO</h1>
             <div class="wrapper">
                 <div class="button" onClick={(e) => {
                 e.preventDefault();
@@ -62,7 +62,7 @@ const Header = () => {
                 </div>
             </div>
 
-            <h2 className='network-title'> Please make sure your wallet is connected to Ethereum Network </h2>
+            <h2 className='network-title'> Please make sure your wallet is connected to "Ethereum Network" </h2>
         </section>
     )
 }

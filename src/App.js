@@ -7,8 +7,12 @@ import "./components/Button/Button.css";
 import Alert from "./components/Alert/Alert";
 import Header from "./components/Header/Header";
 import Navbar from "../src/components/Navbar/Navbar";
-import SocialMedia from "./components/SocialMedia/SocialMedia";
 import "./components/ButtonT/ButtonT.css";
+import { FaTwitter} from 'react-icons/fa';
+import { AiOutlineInstagram} from 'react-icons/ai';
+import { SiDiscord } from "react-icons/si";
+
+
 
 
 const { MerkleTree } = require("merkletreejs");
@@ -153,6 +157,24 @@ function App() {
                           
                           <h1 className="nft-numbers"> {data.totalSupply}/{CONFIG.MAX_SUPPLY} Max supply</h1>
                           <p className="cost">Each unit costs 0.0029 eth (excluding gas fees)</p>
+
+                          <ul class="socialM">
+
+                            <li><a href="https://twitter.com/theclubfomo"
+                            target="_blank">
+                            <FaTwitter className="social-icon"/>
+                            </a></li>
+
+                            <li><a href="https://discord.com/invite/DMDenNFmR2"
+                            target="_blank">
+                            <SiDiscord className="social-icon"/>
+                            </a></li>
+                            <li><a href="#"
+                            target="_blank">
+                            <AiOutlineInstagram className="social-icon"/>
+                            </a></li>
+                          </ul>
+
                           {alert.show &&  <Alert {...alert} removeAlert={showAlert}/>}
 
                           <div className="count-buttons">
