@@ -1,19 +1,26 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useRef} from 'react'
 import './Header.css';
 import gsap from 'gsap';
 import SplitText from "../../Utilis/split3.min";
-import * as s from "../../styles/globalStyles";
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "../../redux/blockchain/blockchainActions";
 import '../SocialMedia/SocialMedia';
-import SocialMedia from '../SocialMedia/SocialMedia';
 import "../ButtonT/ButtonT.css";
+import party from "party-js";
 
 
 const Header = () => {
 
     const dispatch = useDispatch();
     const blockchain = useSelector((state) => state.blockchain);
+    const partyRef = useRef();
+
+    useEffect(()=> {
+        party.confetti(partyRef.current, {
+            shapes: ["square", "rectangle"],
+            count: party.variation.range(100,100)
+        });
+    }, []);
     
     
     useEffect(() => {
@@ -48,7 +55,7 @@ const Header = () => {
 
     return (
         <section className="header-container" data-scroll-section>
-
+            <span ref={partyRef}></span>
             <h1 className="text-Header bottom" id="text-Header" data-scroll>We Are CLUB FOMO</h1>
             <div class="wrapper">
                 <div class="button" onClick={(e) => {
