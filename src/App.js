@@ -11,6 +11,7 @@ import "./components/ButtonT/ButtonT.css";
 import { FaTwitter} from 'react-icons/fa';
 import { AiOutlineInstagram} from 'react-icons/ai';
 import { SiDiscord } from "react-icons/si";
+import clubFomoBg from "../src/components/Assets/Clubfomobg.mp4";
 
 
 
@@ -139,7 +140,6 @@ function App() {
   return (
      <div className="main-container" id="main-container"
      data-scroll-container>
-      
                   {blockchain.account === "" || blockchain.smartContract === null ? (
                       <>
                        <Header/>
@@ -152,9 +152,11 @@ function App() {
                         </>
                       ): 
                       ( <>
-                          <Navbar/>
+                        <Navbar/>
                           <h1 class="title-mint">Welcome TO <br/>  CLUB FOMO <br/> NFT WHITELIST</h1>
-                          
+                          <div id="fomoVideo">
+                            <video src={clubFomoBg} loop muted autoPlay></video>
+                          </div>
                           <h1 className="nft-numbers"> {data.totalSupply}/{CONFIG.MAX_SUPPLY} Max supply</h1>
                           <p className="cost">Each unit costs 0.0029 eth (excluding gas fees)</p>
 
@@ -229,8 +231,7 @@ function App() {
                       </>)}
                        </> 
                       )}
-       
-     </div> 
+      </div> 
  )
 }
 
