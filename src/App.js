@@ -23,6 +23,8 @@ const whiteList = require("./addressesList.json");
 
 // Fix the total supply []
 // Max Mint
+// Change the price to 25.000 euros
+// Check the config well
 
 
 function App() {
@@ -71,7 +73,7 @@ function App() {
     showAlert(true,"Minting your NFT...");
     setClaimingNft(true);
     blockchain.smartContract.methods
-      .mint(blockchain.account, mintAmount, proof)
+      .mint(mintAmount, proof)
       .send({
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
@@ -159,11 +161,9 @@ function App() {
                           </div>
                           {/* <h1 className="nft-numbers"> {data.totalSupply}/{CONFIG.MAX_SUPPLY} Max supply</h1> */}
                           <h1 className="nft-numbers"> 0/1 Max supply</h1>
-                          
                           <p className="cost">"Legendary VIP" NFT costs 13.77 eth (excluding gas fees)</p>
 
                           <ul class="socialM">
-
                             <li><a href="https://twitter.com/theclubfomo"
                             target="_blank">
                             <FaTwitter className="social-icon"/>

@@ -427,11 +427,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "_account",
-				"type": "address"
-			},
-			{
 				"internalType": "uint256",
 				"name": "_quantity",
 				"type": "uint256"
@@ -730,6 +725,19 @@
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "_maxSupply",
+				"type": "uint256"
+			}
+		],
+		"name": "setMaxSupply",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "string",
 				"name": "_notRevealedURI",
 				"type": "string"
@@ -795,7 +803,7 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "tokenId",
+				"name": "_nftId",
 				"type": "uint256"
 			}
 		],
