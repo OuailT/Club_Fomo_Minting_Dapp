@@ -11,9 +11,8 @@ nav.nav-bar {
   }
 
   .logo {
-    width: 80px;
-    cursor: pointer;
-    filter:invert(1);
+    position: relative;
+    max-width: 80px;
   }
 
   .openSeaLogo {

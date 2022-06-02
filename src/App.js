@@ -157,8 +157,10 @@ function App() {
                           <div id="fomoVideo">
                             <video src={clubFomoBg} loop muted autoPlay></video>
                           </div>
-                          <h1 className="nft-numbers"> {data.totalSupply}/{CONFIG.MAX_SUPPLY} Max supply</h1>
-                          <p className="cost">Each unit costs 0.0029 eth (excluding gas fees)</p>
+                          {/* <h1 className="nft-numbers"> {data.totalSupply}/{CONFIG.MAX_SUPPLY} Max supply</h1> */}
+                          <h1 className="nft-numbers"> 0/1 Max supply</h1>
+                          
+                          <p className="cost">"Legendary VIP" NFT costs 13.77 eth (excluding gas fees)</p>
 
                           <ul class="socialM">
 
