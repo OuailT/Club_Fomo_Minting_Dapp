@@ -110,7 +110,7 @@ nav.nav-bar {
     }
 
     nav.nav-bar {
-      padding: 63px 22px 0px 22px;
+      padding: 19px 22px 0px 22px;
     }
   
     nav.nav-bar .navigation {
@@ -167,10 +167,6 @@ nav.nav-bar {
   @media (min-width: 320px) and (max-width: 480px) {
     nav.nav-bar .navigation {
       width: 80%;
-    }
-
-    nav.nav-bar {
-      justify-content: center;
     }
 
     .btn-navbar {

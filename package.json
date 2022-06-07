@@ -4,7 +4,9 @@
   "description": "CLubFomo_Minting_Dapp",
   "private": true,
   "dependencies": {
+    "@firebase/firestore": "^3.4.9",
     "all": "0.0.0",
+    "firebase": "^8.10.0",
     "keccak256": "^1.0.6",
     "merkletreejs": "^0.2.31",
     "party-js": "^2.1.2",

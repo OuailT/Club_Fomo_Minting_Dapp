@@ -7,24 +7,22 @@ import "./components/Button/Button.css";
 import Alert from "./components/Alert/Alert";
 import Header from "./components/Header/Header";
 import Navbar from "../src/components/Navbar/Navbar";
+import firebase from "./components/FireBase/FireBase";
 import "./components/ButtonT/ButtonT.css";
 import { FaTwitter} from 'react-icons/fa';
 import { AiOutlineInstagram} from 'react-icons/ai';
 import { SiDiscord } from "react-icons/si";
 import clubFomoBg from "../src/components/Assets/Clubfomobg.mp4";
-
-
-
-
 const { MerkleTree } = require("merkletreejs");
 const keccak256 = require("keccak256");
 
-const whiteList = require("./addressesList.json");
+const ref = firebase.firestore().collection("whitelistData");
 
 // Fix the total supply []
 // Max Mint
-// Change the price to 25.000 euros
+// Change the price to 25.000 dollars
 // Check the config well
+// Change the daba from default test to something else;
 
 
 function App() {
@@ -35,6 +33,9 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState({show:false, msg:"Click mint to buy your NFT"});
   const [mintAmount, setMintAmount] = useState(1);
+  const [fireBaseAddresses, setFireBaseAddresses] = useState([]);
+
+
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
     SCAN_LINK: "",
@@ -55,23 +56,32 @@ function App() {
   });
 
 
-  const claimNFTs = () => {
-  let tab = [];
-  whiteList.map((el) => {
-    tab.push(el.address);
-  });
+  // Fetch Addresses From Firebase DB
+  function getFireBaseAddress() {
+    ref.get().then((querySnapshot)=> {
+      querySnapshot.forEach((doc)=> {
+        let dataAddresses = doc.data().address;
+        setFireBaseAddresses(prevState => [...prevState, dataAddresses]);
+      });
+    });
+  }
 
-  const leafNodes = tab.map((address) => keccak256(address));
+
+  const claimNFTs = () => {
+  
+  /* Whitelist Functionalities */
+  const leafNodes = fireBaseAddresses.map((address) => keccak256(address));
   const merkleTree = new MerkleTree(leafNodes, keccak256, { sortPairs: true });
   const root = merkleTree.getHexRoot();
   const leaf = keccak256(blockchain.account);
-
   const proof = merkleTree.getHexProof(leaf);
+  
 
     let cost = CONFIG.WEI_COST;
     let totalCostWei = String(cost * mintAmount);
     showAlert(true,"Minting your NFT...");
     setClaimingNft(true);
+
     blockchain.smartContract.methods
       .mint(mintAmount, proof)
       .send({
@@ -133,6 +143,7 @@ function App() {
 
   useEffect(() => {
     getConfig();
+    getFireBaseAddress();
   }, []);
 
   useEffect(() => {
