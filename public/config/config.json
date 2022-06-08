@@ -1,15 +1,15 @@
 {
-  "CONTRACT_ADDRESS": "0xF84720B5AC7e72D664C10D44129E5b8d62b179f5",
-  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0xe967d7e2addaaa13fda7222ad4102bb0209b4754",
+  "CONTRACT_ADDRESS": "0x363cF0303Bb99958011dAED7578A65FDb3209bB8",
+  "SCAN_LINK": "https://etherscan.io/address/0x363cF0303Bb99958011dAED7578A65FDb3209bB8",
   "NETWORK": {
-    "NAME": "Rinkeby Test Network",
+    "NAME": "Ethereum Mainnet",
     "SYMBOL": "ETH",
-    "ID": 4
+    "ID": 1
   },
-  "NFT_NAME": "CLub Fomo",
-  "SYMBOL": "RLG",
-  "MAX_SUPPLY": 2000,
-  "WEI_COST": 100000000000000,
+  "NFT_NAME": "Club FOMO - Legendary VIP",
+  "SYMBOL": "CLBFOMOVIP",
+  "MAX_SUPPLY": 1,
+  "WEI_COST": 13850000000000000000,
   "DISPLAY_COST": 0,
   "GAS_LIMIT": 285000,
   "MARKETPLACE": "Opeansea",

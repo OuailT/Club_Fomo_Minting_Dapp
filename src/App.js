@@ -7,16 +7,19 @@ import "./components/Button/Button.css";
 import Alert from "./components/Alert/Alert";
 import Header from "./components/Header/Header";
 import Navbar from "../src/components/Navbar/Navbar";
-import firebase from "./components/FireBase/FireBase";
+// import firebase from "./components/FireBase/FireBase";
 import "./components/ButtonT/ButtonT.css";
 import { FaTwitter} from 'react-icons/fa';
 import { AiOutlineInstagram} from 'react-icons/ai';
 import { SiDiscord } from "react-icons/si";
+import { FaTelegramPlane } from "react-icons/fa";
 import clubFomoBg from "../src/components/Assets/Clubfomobg.mp4";
-const { MerkleTree } = require("merkletreejs");
-const keccak256 = require("keccak256");
 
-const ref = firebase.firestore().collection("whitelistData");
+
+// const { MerkleTree } = require("merkletreejs");
+// const keccak256 = require("keccak256");
+
+// const ref = firebase.firestore().collection("whitelistData");
 
 // Fix the total supply []
 // Max Mint
@@ -33,7 +36,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState({show:false, msg:"Click mint to buy your NFT"});
   const [mintAmount, setMintAmount] = useState(1);
-  const [fireBaseAddresses, setFireBaseAddresses] = useState([]);
+  // const [fireBaseAddresses, setFireBaseAddresses] = useState([]);
 
 
   const [CONFIG, SET_CONFIG] = useState({
@@ -56,25 +59,25 @@ function App() {
   });
 
 
-  // Fetch Addresses From Firebase DB
-  function getFireBaseAddress() {
-    ref.get().then((querySnapshot)=> {
-      querySnapshot.forEach((doc)=> {
-        let dataAddresses = doc.data().address;
-        setFireBaseAddresses(prevState => [...prevState, dataAddresses]);
-      });
-    });
-  }
+  // // Fetch Addresses From Firebase DB
+  // function getFireBaseAddress() {
+  //   ref.get().then((querySnapshot)=> {
+  //     querySnapshot.forEach((doc)=> {
+  //       let dataAddresses = doc.data().address;
+  //       setFireBaseAddresses(prevState => [...prevState, dataAddresses]);
+  //     });
+  //   });
+  // }
 
 
   const claimNFTs = () => {
   
-  /* Whitelist Functionalities */
-  const leafNodes = fireBaseAddresses.map((address) => keccak256(address));
-  const merkleTree = new MerkleTree(leafNodes, keccak256, { sortPairs: true });
-  const root = merkleTree.getHexRoot();
-  const leaf = keccak256(blockchain.account);
-  const proof = merkleTree.getHexProof(leaf);
+  // /* Whitelist Functionalities */
+  // const leafNodes = fireBaseAddresses.map((address) => keccak256(address));
+  // const merkleTree = new MerkleTree(leafNodes, keccak256, { sortPairs: true });
+  // const root = merkleTree.getHexRoot();
+  // const leaf = keccak256(blockchain.account);
+  // const proof = merkleTree.getHexProof(leaf);
   
 
     let cost = CONFIG.WEI_COST;
@@ -83,7 +86,7 @@ function App() {
     setClaimingNft(true);
 
     blockchain.smartContract.methods
-      .mint(mintAmount, proof)
+      .mint(mintAmount)
       .send({
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
@@ -92,7 +95,7 @@ function App() {
         maxFeePerGas: null
       })
       .once("error", (err) => {
-        showAlert(true,"Something went wrong (You're not on the whitelist)");
+        showAlert(true,"Sorry, something went wrong..");
         setClaimingNft(false);
         console.log(err);
       })
@@ -143,7 +146,7 @@ function App() {
 
   useEffect(() => {
     getConfig();
-    getFireBaseAddress();
+    // getFireBaseAddress();
   }, []);
 
   useEffect(() => {
@@ -159,20 +162,19 @@ function App() {
                       </>
                     ) : (
                       <>
-                        {Number(data.totalSupply) >= 2000 ? (
+                        {Number(data.totalSupply) >= 1 ? (
                         <>
-                          <h1 className="nft-numbers">The sale has ended!</h1>
+                          <h1 className="nft-numbers">The sale has ended, new collection coming soon!</h1>
                         </>
                       ): 
                       ( <>
                         <Navbar/>
-                          <h1 class="title-mint">Welcome TO <br/>  CLUB FOMO <br/> NFT WHITELIST</h1>
+                          <h1 class="title-mint">Welcome TO <br/>  CLUB FOMO <br/> Legendary VIP</h1>
                           <div id="fomoVideo">
                             <video src={clubFomoBg} loop muted autoPlay></video>
                           </div>
-                          {/* <h1 className="nft-numbers"> {data.totalSupply}/{CONFIG.MAX_SUPPLY} Max supply</h1> */}
-                          <h1 className="nft-numbers"> 0/1 Max supply</h1>
-                          <p className="cost">"Legendary VIP" NFT costs 13.77 eth (excluding gas fees)</p>
+                          <h1 className="nft-numbers"> {data.totalSupply}/{CONFIG.MAX_SUPPLY} Max supply</h1>
+                          <p className="cost">"Legendary VIP" NFT costs 13.85 eth (excluding gas fees)</p>
 
                           <ul class="socialM">
                             <li><a href="https://twitter.com/theclubfomo"
@@ -184,10 +186,10 @@ function App() {
                             target="_blank">
                             <SiDiscord className="social-icon"/>
                             </a></li>
-                            <li><a href="#"
+                            {/* <li><a href="#"
                             target="_blank">
-                            <AiOutlineInstagram className="social-icon"/>
-                            </a></li>
+                            <FaTelegramPlane className="social-icon"/>
+                            </a></li> */}
                           </ul>
 
                           {alert.show &&  <Alert {...alert} removeAlert={showAlert}/>}
@@ -195,7 +197,7 @@ function App() {
                           <div className="count-buttons">
                             <button 
                              className="btn"
-                             disabled={claimingNft ? 1 : 0}
+                             disabled={claimingNft ? 1 : 1}
                              onClick={(e)=> {
                                  e.preventDefault();
                                  decrementMintAmount();
@@ -205,7 +207,7 @@ function App() {
                             <p className="btn" id="count">{mintAmount}</p>
 
                             <button 
-                            disabled={claimingNft ? 1 : 0}
+                            disabled={claimingNft ? 1 : 1}
                              className="btn"
                              onClick={(e)=> {
                                  e.preventDefault();

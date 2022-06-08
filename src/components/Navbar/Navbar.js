@@ -12,7 +12,7 @@ const Navbar = () => {
           <img src={fomoLogo} alt="clubFomoLogo" className="logo"/>
         </a>
       <div>
-        <a target={"_blank"} href="https://opensea.io/collection/rose-law-group-metareport">
+        <a target={"_blank"} href="https://opensea.io/">
           <button className="btn-navbar"> View Your NFT
           <img src={openSeaLogo} className="openSeaLogo" alt="openseaLogo"/>
           </button>
