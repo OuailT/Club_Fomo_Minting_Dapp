@@ -126,7 +126,7 @@ function App() {
     }
     setMintAmount(newMintAmount);
   };
-
+  
   const getData = () => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
       dispatch(fetchData(blockchain.account));
@@ -162,7 +162,7 @@ function App() {
                       </>
                     ) : (
                       <>
-                        {Number(data.totalSupply) >= 1 ? (
+                        {Number(data.totalSupply) == 0 ? (
                         <>
                           <h1 className="nft-numbers">The sale has ended, new collection coming soon!</h1>
                         </>
