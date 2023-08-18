@@ -7,25 +7,12 @@ import "./components/Button/Button.css";
 import Alert from "./components/Alert/Alert";
 import Header from "./components/Header/Header";
 import Navbar from "../src/components/Navbar/Navbar";
-// import firebase from "./components/FireBase/FireBase";
 import "./components/ButtonT/ButtonT.css";
 import { FaTwitter} from 'react-icons/fa';
-import { AiOutlineInstagram} from 'react-icons/ai';
 import { SiDiscord } from "react-icons/si";
-import { FaTelegramPlane } from "react-icons/fa";
 import clubFomoBg from "../src/components/Assets/Clubfomobg.mp4";
 
 
-// const { MerkleTree } = require("merkletreejs");
-// const keccak256 = require("keccak256");
-
-// const ref = firebase.firestore().collection("whitelistData");
-
-// Fix the total supply []
-// Max Mint
-// Change the price to 25.000 dollars
-// Check the config well
-// Change the daba from default test to something else;
 
 
 function App() {
@@ -36,7 +23,6 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState({show:false, msg:"Click mint to buy your NFT"});
   const [mintAmount, setMintAmount] = useState(1);
-  // const [fireBaseAddresses, setFireBaseAddresses] = useState([]);
 
 
   const [CONFIG, SET_CONFIG] = useState({
@@ -58,28 +44,8 @@ function App() {
     SHOW_BACKGROUND: false,
   });
 
-
-  // // Fetch Addresses From Firebase DB
-  // function getFireBaseAddress() {
-  //   ref.get().then((querySnapshot)=> {
-  //     querySnapshot.forEach((doc)=> {
-  //       let dataAddresses = doc.data().address;
-  //       setFireBaseAddresses(prevState => [...prevState, dataAddresses]);
-  //     });
-  //   });
-  // }
-
-
+  //**** Function for minting NFTs by interacting with the blockchain smart contract ***/// 
   const claimNFTs = () => {
-  
-  // /* Whitelist Functionalities */
-  // const leafNodes = fireBaseAddresses.map((address) => keccak256(address));
-  // const merkleTree = new MerkleTree(leafNodes, keccak256, { sortPairs: true });
-  // const root = merkleTree.getHexRoot();
-  // const leaf = keccak256(blockchain.account);
-  // const proof = merkleTree.getHexProof(leaf);
-  
-
     let cost = CONFIG.WEI_COST;
     let totalCostWei = String(cost * mintAmount);
     showAlert(true,"Minting your NFT...");
@@ -95,22 +61,23 @@ function App() {
         maxFeePerGas: null
       })
       .once("error", (err) => {
-        showAlert(true,"Sorry, something went wrong..");
+        showAlert(true,"Sorry, something went wrong.");
         setClaimingNft(false);
         console.log(err);
       })
       .then((receipt) => {
-        showAlert(true,"You're Nft has been minted! Welcome to CLUB FOMO!!");
+        showAlert(true,"Your NFT has been minted! Welcome to CLUB FOMO!");
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
       });
   };
 
-  // to show Alert 
+  ///**** Helper function to show alerts with custom messages ****/
   const showAlert = (show = false, msg = "") => {
       setAlert({show:show, msg: msg});
   }
 
+  ///**** Decreases the mint amount by one, ensuring it doesn't go below one ****///
   const decrementMintAmount = () => {
     let newMintAmount = mintAmount - 1;
     if (newMintAmount < 1) {
@@ -119,6 +86,7 @@ function App() {
     setMintAmount(newMintAmount);
   };
 
+  ///**** Increases the mint amount by one, ensuring it doesn't exceed a certain maximum (e.g., 100) ****///
   const incrementMintAmount = () => {
     let newMintAmount = mintAmount + 1;
     if (newMintAmount > 100) {
@@ -127,12 +95,14 @@ function App() {
     setMintAmount(newMintAmount);
   };
   
+  ///**** Fetches data based on the blockchain's current account state ****///
   const getData = () => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
       dispatch(fetchData(blockchain.account));
     }
   };
 
+  ///**** Async function that retrieves the application's configuration from a local JSON file ****///
   const getConfig = async () => {
     const configResponse = await fetch("/config/config.json", {
       headers: {
@@ -144,11 +114,12 @@ function App() {
     SET_CONFIG(config);
   };
 
+  ///**** React effect hook that gets the app's configuration when the component mounts ****///
   useEffect(() => {
     getConfig();
-    // getFireBaseAddress();
   }, []);
 
+  ///**** React effect hook that gets data whenever the blockchain account state changes ****///
   useEffect(() => {
     getData();
   }, [blockchain.account]);
@@ -186,10 +157,6 @@ function App() {
                             target="_blank">
                             <SiDiscord className="social-icon"/>
                             </a></li>
-                            {/* <li><a href="#"
-                            target="_blank">
-                            <FaTelegramPlane className="social-icon"/>
-                            </a></li> */}
                           </ul>
 
                           {alert.show &&  <Alert {...alert} removeAlert={showAlert}/>}
