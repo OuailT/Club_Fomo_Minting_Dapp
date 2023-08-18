@@ -1,6 +1,6 @@
 # ClubFOMO NFT Minting DApp
 
-Mint unique, non-fungible tokens (NFTs) with ClubFOMO's DApp on the Ethereum blockchain. I've developed this project for a client that has only one NFT, which was sold for 13.85ETH. At the time of minting, this was equivalent to $25,000.
+Mint unique, non-fungible tokens (NFTs) with ClubFOMO's DApp on the Ethereum blockchain. For a client, I developed this project featuring a singular NFT that fetched a sale price of 13.85ETH, amounting to $25,000 at the time of minting.
 
 <a href="https://ibb.co/LpngLYr"><img src="https://i.ibb.co/Thm0VY1/Club-Fomo-screenshot.png" alt="Club-Fomo-screenshot" border="0"></a>
 
